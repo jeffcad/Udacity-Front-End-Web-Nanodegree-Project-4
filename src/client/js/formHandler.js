@@ -51,25 +51,25 @@ function updateUI(res) {
         subjectivity = subjectivity.toLowerCase()
         subjectivity = subjectivity[0].toUpperCase() + subjectivity.substring(1);
         subjectivityElement.innerHTML = subjectivity
-        switch (res.score_tag) {
-            case "P+":
-                scoreElement.innerHTML = "Strongly Positive"
-                break
-            case "P":
-                scoreElement.innerHTML = "Positive"
-                break
-            case "NEU":
-                scoreElement.innerHTML = "Neutral"
-                break
-            case "N":
-                scoreElement.innerHTML = "Negative"
-                break
-            case "N+":
-                scoreElement.innerHTML = "Strongly Negative"
-                break
-            default:
-                scoreElement.innerHTML = "No Sentiment"
-        }
+        scoreElement.innerHTML = scoreDescription(res.score_tag)
     }
 }
 
+export function scoreDescription(score) {
+    switch (score) {
+        case "P+":
+            return "Strongly Positive"
+        case "P":
+            return "Positive"
+        case "NEU":
+            return "Neutral"
+        case "N":
+            return "Negative"
+        case "N+":
+            return "Strongly Negative"
+        case "NONE":
+            return "No sentiment"
+        default:
+            return "Invalid data"
+    }
+}
