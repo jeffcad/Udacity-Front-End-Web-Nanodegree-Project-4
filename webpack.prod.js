@@ -23,16 +23,25 @@ module.exports = {
                 test: /\.scss$/,
                 use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
-        ]
-    },
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: "./src/client/views/index.html",
-            filename: "./index.html",
-        }),
-        new MiniCssExtractPlugin({ filename: "[name].css" })
-    ],
-    optimization: {
-        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
-    },
+            {
+                test: /\.png$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        esModule: false
+                    }
+                }
+                ]
+            },
+            plugins: [
+                new HtmlWebPackPlugin({
+                    template: "./src/client/views/index.html",
+                    filename: "./index.html",
+                }),
+                new MiniCssExtractPlugin({ filename: "[name].css" })
+            ],
+            optimization: {
+                minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+            },
 }

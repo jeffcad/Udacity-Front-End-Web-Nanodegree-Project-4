@@ -7,6 +7,8 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
+import './images/meaningCloud-logo.png'
+
 export {
     checkURL,
     handleSubmit,
