@@ -16,8 +16,9 @@ app.use(express.static('dist'))
 
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+//app.use(bodyParser.json())
+app.use(bodyParser.text())
 
 const URL_ROOT = "https://api.meaningcloud.com/sentiment-2.1"
 const URL_KEY = `?key=${API_KEY}`
@@ -44,8 +45,8 @@ app.get('/test', function (req, res) {
 app.post('/call', callAPI)
 
 async function callAPI(req, res) {
-    console.log(`Request is ${req.body.input}`)
-    const url = URL_ROOT + URL_KEY + URL_LANG + URL_USER_INPUT + req.body.input
+    console.log(`Request is ${req.body}`)
+    const url = URL_ROOT + URL_KEY + URL_LANG + URL_USER_INPUT + req.body
     console.log(url)
     const response = await fetch(url)
     const nlpData = await response.json()

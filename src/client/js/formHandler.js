@@ -6,7 +6,7 @@ export function handleSubmit(event) {
 
     console.log("::: Form Submitted :::")
 
-    getAnalysis('http://localhost:8081/call', { input: userInput })
+    getAnalysis('http://localhost:8081/call', userInput)
 }
 
 export async function getAnalysis(url, userInput) {
@@ -15,10 +15,10 @@ export async function getAnalysis(url, userInput) {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'text/plain',
         },
         // Body data type must match "Content-Type" header        
-        body: JSON.stringify(userInput),
+        body: userInput,
     })
         .then(res => res.json())
         .then(function (res) {
