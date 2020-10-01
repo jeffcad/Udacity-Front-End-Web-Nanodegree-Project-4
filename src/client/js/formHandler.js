@@ -2,7 +2,7 @@ export function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let userInput = document.getElementById('name').value
+    let userInput = document.getElementById('inputURL').value
 
     console.log("::: Form Submitted :::")
 
@@ -22,7 +22,39 @@ export async function getAnalysis(url, userInput) {
     })
         .then(res => res.json())
         .then(function (res) {
-            document.getElementById('results').innerHTML = res.message
+            const resultsElement = document.getElementById('results')
+            const subjectivityElement = document.getElementById('subjectivity')
+            const scoreElement = document.getElementById('score')
+            resultsElement.innerHTML = res.message
+            if ("status" in res) {
+                console.log('good data, should update')
+                let subjectivity = res.subjectivity
+                subjectivity = subjectivity.toLowerCase()
+                subjectivity = subjectivity[0].toUpperCase() + subjectivity.substring(1);
+                subjectivityElement.innerHTML = subjectivity
+                switch (res.score_tag) {
+                    case "P+":
+                        scoreElement.innerHTML = "Strongly Positive"
+                        break
+                    case "P":
+                        scoreElement.innerHTML = "Positive"
+                        break
+                    case "NEU":
+                        scoreElement.innerHTML = "Neutral"
+                        break
+                    case "N":
+                        scoreElement.innerHTML = "Negative"
+                        break
+                    case "N+":
+                        scoreElement.innerHTML = "Strongly Negative"
+                        break
+                    default:
+                        scoreElement.innerHTML = "No Sentiment"
+                }
+            } else {
+                subjectivityElement.innerHTML = ""
+                scoreElement.innerHTML = ""
+            }
         })
 }
 

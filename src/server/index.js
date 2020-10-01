@@ -16,7 +16,7 @@ app.use(express.static('dist'))
 
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }))
+//app.use(bodyParser.urlencoded({ extended: false }))
 //app.use(bodyParser.json())
 app.use(bodyParser.text())
 
@@ -49,11 +49,16 @@ async function callAPI(req, res) {
     const url = URL_ROOT + URL_KEY + URL_LANG + URL_USER_INPUT + req.body
     console.log(url)
     const response = await fetch(url)
-    const nlpData = await response.json()
 
-    if (nlpData.status.code == 0) {
-        res.send({ message: "Good data received from API" })
-    } else {
-        res.send({ message: "API call didn't work" })
+    try {
+        const nlpData = await response.json()
+        if (nlpData.status.code == 0) {
+            nlpData.message = "Good data received from API"
+            res.send(nlpData)
+        } else {
+            res.send({ message: "API call didn't work" })
+        }
+    } catch (error) {
+        console.error(error)
     }
 }

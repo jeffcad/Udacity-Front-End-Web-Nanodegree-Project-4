@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Test</title>
+    <title>Evaluate News App</title>
 </head>
 
 <body>
@@ -20,7 +20,8 @@
     <main>
         <section>
             <form class="" onsubmit="return Client.handleSubmit(event)">
-                <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                <input id="inputURL" type="text" name="input" value="" onblur="onBlur()"
+                    placeholder="Enter the URL here">
                 <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)"
                     onsubmit="return Client.handleSubmit(event)">
             </form>
@@ -29,6 +30,8 @@
                 <section>
                     <strong>Form Results:</strong>
                     <div id="results"></div>
+                    <div id="subjectivity"></div>
+                    <div id="score"></div>
                 </section>
     </main>
 
