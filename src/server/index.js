@@ -26,15 +26,15 @@ const URL_LANG = "&lang=auto"
 const URL_USER_INPUT = "&url="
 const port = 8081
 
+// Designates what port the app will listen to for incoming requests
+app.listen(port, function () {
+    console.log(`Evaluate news app listening on port ${port}!`)
+})
+
 // Serves the main page to browser
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
     //res.sendFile(path.resolve('src/client/views/index.html'))
-})
-
-// Designates what port the app will listen to for incoming requests
-app.listen(port, function () {
-    console.log(`Evaluate news app listening on port ${port}!`)
 })
 
 // Tests the path between client and server, returns mock API response
