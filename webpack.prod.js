@@ -25,14 +25,11 @@ module.exports = {
             },
             {
                 test: /\.png$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        esModule: false
-                    }
-                }
-                ]
+                use: ['file-loader']
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
             },
         ]
     },

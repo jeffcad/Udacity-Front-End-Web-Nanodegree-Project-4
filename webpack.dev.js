@@ -17,7 +17,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: 'babel-loader'
             },
             {
                 test: /\.scss$/,
@@ -25,14 +25,11 @@ module.exports = {
             },
             {
                 test: /\.png$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        esModule: false
-                    }
-                }
-                ]
+                use: ['file-loader']
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
             },
         ]
     },
