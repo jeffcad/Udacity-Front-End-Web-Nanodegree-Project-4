@@ -2,7 +2,6 @@ const dotenv = require('dotenv')
 dotenv.config()
 const API_KEY = process.env.API_KEY
 
-const path = require('path') //Can delete this in final code if not used anymore
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const cors = require('cors')
@@ -16,8 +15,6 @@ app.use(express.static('dist'))
 
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
-//app.use(bodyParser.urlencoded({ extended: false }))
-//app.use(bodyParser.json())
 app.use(bodyParser.text())
 
 const URL_ROOT = "https://api.meaningcloud.com/sentiment-2.1"
@@ -34,7 +31,6 @@ app.listen(port, function () {
 // Serves the main page to browser
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
-    //res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 // Tests the path between client and server, returns mock API response
