@@ -1,0 +1,13 @@
+.midsection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 40px;
+}
+
+.attribution {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}

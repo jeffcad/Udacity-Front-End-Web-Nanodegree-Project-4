@@ -1,12 +1,29 @@
-form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
-}
+$buttoncolour: #8cd9b1;
+$hovercolour: #40bf7d;
 
-input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 20px;
+    width: 70%;
+    margin: 40px auto;
+
+    input {
+        padding: 5px 20px;
+        width: 90%;
+        font-size: 1.3em;
+        margin: 10px 0;
+    }
+
+    .button {
+        background-color: $buttoncolour;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $hovercolour;
+        }
+    }
 }

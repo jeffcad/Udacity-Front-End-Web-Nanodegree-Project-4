@@ -1,5 +1,7 @@
+$headcolour: #8cd9b1;
+
 header {
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
     padding: 10px 40px;
+    background-color: $headcolour;
 }

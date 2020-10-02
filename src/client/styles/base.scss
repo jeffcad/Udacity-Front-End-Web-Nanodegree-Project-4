@@ -1,14 +1,18 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
-main {
-    flex: 2;
+h1 {
+    font-size: 3em;
 }
 
-section {
-    max-width: 800px;
-    margin: 50px auto;
+h2 {
+    font-size: 2em;
+}
+
+strong {
+    font-weight: bold;
+    font-size: 1.8em;
+    padding: 3px;
 }

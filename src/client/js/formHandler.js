@@ -10,7 +10,7 @@ export function handleSubmit(event) {
     const errorElement = document.getElementById('errorMessage')
     if (!Client.checkURL(userInput)) {
         console.log('Bad input')
-        errorElement.innerHTML = 'Input is not valid URL. It should start with http:// or https:// and contain no spaces.'
+        errorElement.innerHTML = 'Input is not a valid URL. It should start with http:// or https:// and contain no spaces.'
         return
     } else {
         errorElement.innerHTML = ""
@@ -44,14 +44,14 @@ function updateUI(res) {
     const subjectivityElement = document.getElementById('subjectivity')
     const scoreElement = document.getElementById('score')
 
-    resultsElement.innerHTML = res.message
+    resultsElement.innerHTML = `Status - ${res.message}`
     if ("status" in res) {
         console.log('good data, should update')
         let subjectivity = res.subjectivity
         subjectivity = subjectivity.toLowerCase()
         subjectivity = subjectivity[0].toUpperCase() + subjectivity.substring(1);
-        subjectivityElement.innerHTML = subjectivity
-        scoreElement.innerHTML = scoreDescription(res.score_tag)
+        subjectivityElement.innerHTML = `Subjectivity - ${subjectivity}`
+        scoreElement.innerHTML = `Positivity - ${scoreDescription(res.score_tag)}`
     }
 }
 
