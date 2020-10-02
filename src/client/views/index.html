@@ -7,40 +7,42 @@
 </head>
 
 <body>
-
-    <header>
-        <h1>Evaluate News for Subjectivity and Positivity</h1>
-    </header>
-
-    <main>
-        <section>
-            <form class="" onsubmit="return Client.handleSubmit(event)">
-                <input class="user-input" id="inputURL" type="text" name="input" value=""
-                    placeholder="Enter the URL here">
-                <input class="button" type="submit" name="" value="Analyse" onclick="return Client.handleSubmit(event)"
-                    onsubmit="return Client.handleSubmit(event)">
-            </form>
-            <div class="message" id="errorMessage"></div>
-        </section>
-        <div class="midsection">
-            <section class="output">
-                <strong>Form Results:</strong>
-                <div class="message" id="results"></div>
-                <div class="message" id="subjectivity"></div>
-                <div class="message" id="score"></div>
-            </section>
-            <section class="attribution">
-                <img src="../images/meaningCloud-logo.png" alt="Meaning Cloud logo" height="100" width="247">
-                <a href="https://www.meaningcloud.com/" target="blank">Powered by MeaningCloud API</a>
-            </section>
+    <div id="page-container">
+        <div id="sub-container">
+            <header>
+                <h1>Evaluate News for Subjectivity and Positivity</h1>
+            </header>
+            <main>
+                <section>
+                    <form class="" onsubmit="return Client.handleSubmit(event)">
+                        <input class="user-input" id="inputURL" type="text" name="input" value=""
+                            placeholder="Enter the URL here">
+                        <input class="button" type="submit" name="" value="Analyse"
+                            onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    </form>
+                    <div class="message" id="errorMessage"></div>
+                </section>
+                <div class="midsection">
+                    <section class="output">
+                        <strong>Form Results:</strong>
+                        <div class="message" id="results"></div>
+                        <div class="message" id="subjectivity"></div>
+                        <div class="message" id="score"></div>
+                    </section>
+                    <section class="attribution">
+                        <img src="../images/meaningCloud-logo.png" alt="Meaning Cloud logo" height="100" width="247">
+                        <a href="https://www.meaningcloud.com/" target="blank">Powered by MeaningCloud API</a>
+                    </section>
+                </div>
+            </main>
         </div>
-    </main>
 
-    <footer>
-        <h2>
-            A project for Udacity's Front End Web Developer Nanodegree Program
-        </h2>
-    </footer>
+        <footer>
+            <h2>
+                A project for Udacity's Front End Web Developer Nanodegree Program
+            </h2>
+        </footer>
+    </div>
 
 </body>
 

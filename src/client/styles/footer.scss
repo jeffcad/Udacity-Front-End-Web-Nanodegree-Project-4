@@ -1,8 +1,15 @@
 $footcolour: #8cd9b1;
 
 footer {
-    text-align: center;
-    padding: 10px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 40px;
     background-color: $footcolour;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 4em;
 }
