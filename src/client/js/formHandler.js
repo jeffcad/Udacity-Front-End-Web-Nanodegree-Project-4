@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 // Receives the click event
 export async function handleSubmit(event) {
     event.preventDefault()
@@ -27,7 +29,7 @@ export async function handleSubmit(event) {
 }
 
 // Post route to server which will do API call
-async function getAnalysis(url, userInput) {
+export async function getAnalysis(url, userInput) {
 
     let response = await fetch(url, {
         // Must use POST. GET can't have a body, so can't send URL to server
