@@ -23,9 +23,13 @@ export async function handleSubmit(event) {
     console.log("::: Form Submitted :::")
 
     // Calls function to start the API call in server
-    const apiData = await getAnalysis('http://localhost:8081/call', userInput)
+    let apiData = await getAnalysis('http://localhost:8081/call', userInput)
 
-    updateUI(apiData)
+        // Convert response to JSON, call updateUI
+        .then(apiData => apiData.json())
+        .then(function (res) {
+            updateUI(res)
+        })
 }
 
 // Post route to server which will do API call
@@ -41,8 +45,6 @@ export async function getAnalysis(url, userInput) {
         // Body data type must match "Content-Type" header        
         body: userInput,
     })
-    // Convert response to JSON, call updateUI
-    //.then(res => response = res.json())
 
     return response
 }
