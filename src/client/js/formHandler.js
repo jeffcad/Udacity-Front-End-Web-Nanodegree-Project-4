@@ -1,5 +1,5 @@
 // Receives the click event
-export function handleSubmit(event) {
+export async function handleSubmit(event) {
     event.preventDefault()
 
     // Clears the result fields in case of repeat use
@@ -21,13 +21,15 @@ export function handleSubmit(event) {
     console.log("::: Form Submitted :::")
 
     // Calls function to start the API call in server
-    getAnalysis('http://localhost:8081/call', userInput)
+    const apiData = await getAnalysis('http://localhost:8081/call', userInput)
+
+    updateUI(apiData)
 }
 
 // Post route to server which will do API call
 async function getAnalysis(url, userInput) {
 
-    await fetch(url, {
+    let response = await fetch(url, {
         // Must use POST. GET can't have a body, so can't send URL to server
         method: 'POST',
         credentials: 'same-origin',
@@ -38,10 +40,9 @@ async function getAnalysis(url, userInput) {
         body: userInput,
     })
         // Convert response to JSON, call updateUI
-        .then(res => res.json())
-        .then(function (res) {
-            updateUI(res)
-        })
+        .then(res => response = res.json())
+
+    return response
 }
 
 // Updates the UI so user can see the result of analysis
