@@ -41,8 +41,8 @@ export async function getAnalysis(url, userInput) {
         // Body data type must match "Content-Type" header        
         body: userInput,
     })
-        // Convert response to JSON, call updateUI
-        .then(res => response = res.json())
+    // Convert response to JSON, call updateUI
+    //.then(res => response = res.json())
 
     return response
 }
