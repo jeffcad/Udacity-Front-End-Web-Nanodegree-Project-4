@@ -21,7 +21,7 @@ const URL_ROOT = "https://api.meaningcloud.com/sentiment-2.1"
 const URL_KEY = `?key=${API_KEY}`
 const URL_LANG = "&lang=auto"
 const URL_USER_INPUT = "&url="
-const port = 8081
+const port = process.env.PORT || 8081
 
 // Designates what port the app will listen to for incoming requests
 app.listen(port, function () {

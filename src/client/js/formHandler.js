@@ -23,7 +23,7 @@ export async function handleSubmit(event) {
     console.log("::: Form Submitted :::")
 
     // Calls function to start the API call in server
-    let apiData = await getAnalysis('http://localhost:8081/call', userInput)
+    let apiData = await getAnalysis('/call', userInput)
 
         // Convert response to JSON, call updateUI
         .then(apiData => apiData.json())
